@@ -1,0 +1,11 @@
+
+import os
+import xlsxwriter as xw
+import openpyxl as ox
+def saludar():
+    print("Hola Mundo")
+def creacion():
+    ruta= r"S:\Documentos\Programacion\Proyecto ordenar musica con Pyton e IA\preparacion de base de datos\canciones.xlsx"
+    archivo=xw.Workbook(ruta)
+    print("archivo creado")
+    print("LA RUTA DE CREACION ES: ",ruta,)

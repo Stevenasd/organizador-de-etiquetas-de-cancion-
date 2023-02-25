@@ -1,0 +1,4 @@
+import sys
+sys.path.append('S:\Documentos\Programacion\Proyecto ordenar musica con Pyton e IA\preparacion de base de datos')
+print(sys.path)
+#S:\Documentos\Programacion\Proyecto ordenar musica con Pyton e IA\preparacion de base de datos
