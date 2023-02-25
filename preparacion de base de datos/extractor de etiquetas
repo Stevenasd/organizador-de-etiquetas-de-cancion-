@@ -1,18 +1,30 @@
-from os import walk
-import xlsxwriter as xw
-ruta=r"S:\\Documentos\\Programacion\\Proyecto ordenar musica con Pyton e IA\\preparacion de base de datos\\canciones.xlsx"
-print(ruta,"mojarra")
-archivo=xw.Workbook(ruta)
-hoja=archivo.add_worksheet()
-print("archivo creado")
+import os
+import creador as cr
+import openpyxl as op
+#comprobacion de existencia y creacion del archivo
+e= os.path.exists("Canciones UWU.xlsx")
+if e== False:
+    cr.creacion()
+else:
+    print("el archivo existe uWu")
+#extraccion de las canciones de la carpeta
 ruta = 'S:\Musica\Musica\salvar.flac'
-h=walk(ruta)
+h=os.walk(ruta)
 k=2
-p=604
 for n in h:
     j=n[k]
-for y in j:
-    hoja.write(p,1,y)
-    print("he añadido ",y," en la fila: ",p)
+#añadir datos a la base
+archivoo=op.load_workbook("Canciones UWU.xlsx")
+archivo=archivoo['Sheet']
+p=archivo['A1']
+p=p.value
+for k in j:
+    p=str(p)
+    g="B"+p
+    p=int(p)
+    archivo[g]=k
+    print("Añadido ",k," en ",g)
     p+=1
-archivo.close()
+archivo['A1']=p
+archivoo.save("Canciones UWU.xlsx")
+print("Fin Del Codigo")
