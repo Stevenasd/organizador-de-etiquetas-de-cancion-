@@ -1,14 +1,16 @@
 import os
 import creador as cr
 import openpyxl as op
+import tinytag as tt
 #comprobacion de existencia y creacion del archivo
 e= os.path.exists("Canciones UWU.xlsx")
 if e== False:
     cr.creacion()
 else:
-    print("el archivo existe uWu")
+    a=print("el archivo existe uWu")
+
 #extraccion de las canciones de la carpeta
-ruta = 'S:\Musica\Musica\salvar.flac'
+ruta = 'S:\Musica\Musica\salvar'
 h=os.walk(ruta)
 k=2
 for n in h:
@@ -18,13 +20,29 @@ archivoo=op.load_workbook("Canciones UWU.xlsx")
 archivo=archivoo['Sheet']
 p=archivo['A1']
 p=p.value
+
 for k in j:
-    p=str(p)
-    g="B"+p
-    p=int(p)
-    archivo[g]=k
-    print("Añadido ",k," en ",g)
-    p+=1
+    lnk = ruta + "\\" + k
+    print(lnk," Este es el link")
+    try:
+        aud = tt.TinyTag.get(lnk)
+        art = aud.artist
+        frmt= os.path.splitext(lnk)
+        p = str(p)
+        g = "B" + p
+        h = "C" + p
+        f = "D" + p
+        p = int(p)
+        #archivo[h] = art
+        #print("añadido ", art, " en ", h)
+        #archivo[g] = k
+        #print("Añadido ", k, " en ", g)
+        archivo[f] = frmt[1]
+        print("Añadido ", frmt[1], " en ", f)
+        p += 1
+    except:
+        print("Error al cargar información de", k)
+        continue
 archivo['A1']=p
 archivoo.save("Canciones UWU.xlsx")
 print("Fin Del Codigo")
