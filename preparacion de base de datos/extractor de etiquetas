@@ -1,5 +1,5 @@
 import os
-import creador as cr
+import methods as cr
 import openpyxl as op
 import tinytag as tt
 #comprobacion de existencia y creacion del archivo
@@ -33,10 +33,10 @@ for k in j:
         h = "C" + p
         f = "D" + p
         p = int(p)
-        #archivo[h] = art
-        #print("añadido ", art, " en ", h)
-        #archivo[g] = k
-        #print("Añadido ", k, " en ", g)
+        archivo[h] = art
+        print("añadido ", art, " en ", h)
+        archivo[g] = k
+        print("Añadido ", k, " en ", g)
         archivo[f] = frmt[1]
         print("Añadido ", frmt[1], " en ", f)
         p += 1
