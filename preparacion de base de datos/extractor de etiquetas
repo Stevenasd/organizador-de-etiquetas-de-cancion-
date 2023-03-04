@@ -29,16 +29,29 @@ for k in j:
         art = aud.artist
         frmt= os.path.splitext(lnk)
         p = str(p)
-        g = "B" + p
-        h = "C" + p
-        f = "D" + p
+        e1 = "B" + p
+        e2 = "C" + p
+        e3 = "D" + p
+        e4 = "E" + p
+        e5 = "F" + p
+        e6 = "G" + p
         p = int(p)
-        archivo[h] = art
-        print("añadido ", art, " en ", h)
-        archivo[g] = k
-        print("Añadido ", k, " en ", g)
-        archivo[f] = frmt[1]
-        print("Añadido ", frmt[1], " en ", f)
+        print(art,"<--antes de")
+        fasky=cr.conversion_asky(k)
+        archivo[e1] = k
+        archivo[e2] = fasky
+        print("añadido ", k, " en ", e1)
+
+        fasky=cr.conversion_asky(art)
+        archivo[e3] = art
+        archivo[e4] = fasky
+        print("Añadido ", art, " en ", e3)
+
+        fasky=cr.conversion_asky(frmt[1])
+        archivo[e5] = frmt[1]
+        archivo[e6] = fasky
+        print("Añadido ", frmt[1], " en ", e5)
+
         p += 1
     except:
         print("Error al cargar información de", k)
