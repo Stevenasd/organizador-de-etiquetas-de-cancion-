@@ -31,3 +31,4 @@ def conversion_asky(palabra):
     print("El Codigo Ascii de la palabra es: ",infrm)
     print(cadascii)
     return cadascii
+    ununununu
